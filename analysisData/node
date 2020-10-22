@@ -1,0 +1,26 @@
+
+
+
+
+xpath 解析：最常用且最便捷高效的一种解析方式。
+    -xpath 解析原理
+        - 1.实例化一个etree对象，且需要将解析到页面源码加载到该对象中
+        - 2.调用etree对象的xpath方法结合着xpath表达式实现标签的定位和内容的捕获
+    -如何实例化一个etree对象：import lxml.etree
+        - 1.将本地源码html加载到etree对象
+            etree.parse(filepath)
+        - 2.可以将网上请求的源码页面加载到该对象中
+            etree.HTML('page_text')
+        - xpath('xpath表达式')
+    - xpath表达式
+        - /：表示从根节点开始定位。表示一个层级。
+        - //：表示多个层级。可以任意位置定位
+        - 属性定位： //div[@class='song'] tag[@attrName='attr']
+        - 索引定位： //div[@class='song']/p[3] 索引是从1开始的
+        - 取文本
+            - /text() 获取直系标签的文本内容
+            - //text() 获得非直系的文本内容(所以的文本内容)
+        - 取属性：
+            /@attrName  ==>> img/@src
+
+
