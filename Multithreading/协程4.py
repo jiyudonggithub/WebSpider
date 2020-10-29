@@ -9,7 +9,7 @@ import aiohttp
 
 async def fecth(seesion, url):
     print('开始爬取', url)
-    async with seesion.get(url) as resonse:
+    async with seesion.get(url, verify_ssl=False) as resonse:
         text = await resonse.text()
         print(text)
 
@@ -17,8 +17,8 @@ async def fecth(seesion, url):
 async def man():
     async with aiohttp.ClientSession() as session:
         url_list = [
-            'https://www.baidu.com'
-            'https://www.pythonav.com'
+            'https://www.baidu.com',
+            'https://www.icourse163.org/',
             'https://www.bilibili.com/video/BV1Yh411o7Sz?p=99'
         ]
 

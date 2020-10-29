@@ -5,23 +5,12 @@
 # @Software: PyCharm
 
 import re
-
+import requests
 if __name__ == '__main__':
-    # test = '//pic.qiushibaike.com/system/pictures/12342/123424058/medium/JPVO5AAE1XA6I8GX.jpg'
-    #
-    # re_search = re.search(r'(.*)/(.*)\.jpg', test)
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
+    }
+    url = 'https://accounts.douban.com/passport/login?redir=https%3A%2F%2Fmovie.douban.com%2F'
+    page_text = requests.get(url=url, headers=headers).text
+    print(page_text)
 
-    # print(re_search.group(0))
-    # print(re_search.group(1))
-    # print(re_search.group(2))
-    # url = 'https://www.qiushibaike.com/imgrank/page/%d/'
-    # pageNum = 3
-    # print(format(url % pageNum))
-    city = [
-        '', '', '阿坝州', '', '', '', '安康', '', '', '', '阿克苏地区', '', '', '', '阿里地区', '', '', '', '阿拉善盟', '', '', '',
-        '阿勒泰地区', '', '', '', '安庆', '', '', '', '安顺', '', '', '', '鞍山', '', '', '', '克孜勒苏州', '', '', '', '安阳', '', '']
-    new_city = []
-    for ct in city:
-        if len(ct) != 0:
-            new_city.append(ct)
-    print(new_city)
