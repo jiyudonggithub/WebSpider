@@ -19,15 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="193f8c8d-30f1-451c-b98c-32f96e508824" name="Default Changelist" comment="python 爬虫">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Multithreading/线程池的使用.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysisData/acioDemo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysisData/every.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysisData/poolSpider.py" afterDir="false" />
+    <list default="true" id="193f8c8d-30f1-451c-b98c-32f96e508824" name="Default Changelist" comment="python 爬虫多线程，携程">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Multithreading/协程4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Multithreading/协程4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysisData/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysisData/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysisData/poolSpider.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysisData/poolSpider.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +69,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -84,28 +78,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.every">
-    <configuration name="协程4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="WebSpider" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Multithreading" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Multithreading/协程4.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="验证码识别" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="WebSpider" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,6 +92,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OCR/验证码识别.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="协程4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="WebSpider" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Multithreading" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Multithreading/协程4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -347,7 +341,8 @@
       <workItem from="1603379214945" duration="432000" />
       <workItem from="1603859323885" duration="784000" />
       <workItem from="1603963634575" duration="7704000" />
-      <workItem from="1603972430835" duration="8258000" />
+      <workItem from="1603972430835" duration="8775000" />
+      <workItem from="1603981263127" duration="202000" />
     </task>
     <task id="LOCAL-00001" summary="python 爬虫">
       <created>1603378419656</created>
@@ -363,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603378624596</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="python 爬虫多线程，携程">
+      <created>1603980881421</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603980881421</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,45 +385,50 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="python 爬虫" />
-    <option name="LAST_COMMIT_MESSAGE" value="python 爬虫" />
+    <MESSAGE value="python 爬虫多线程，携程" />
+    <option name="LAST_COMMIT_MESSAGE" value="python 爬虫多线程，携程" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1344" height="378" key="GridCell.Tab.0.bottom" timestamp="1603980673247">
+    <state width="1342" height="329" key="GridCell.Tab.0.bottom" timestamp="1603981217332">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1344" height="378" key="GridCell.Tab.0.bottom/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603980673247" />
-    <state width="1344" height="378" key="GridCell.Tab.0.center" timestamp="1603980673247">
+    <state width="1342" height="329" key="GridCell.Tab.0.bottom/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603981217332" />
+    <state width="1342" height="329" key="GridCell.Tab.0.center" timestamp="1603981217331">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1344" height="378" key="GridCell.Tab.0.center/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603980673247" />
-    <state width="1344" height="378" key="GridCell.Tab.0.left" timestamp="1603980673246">
+    <state width="1342" height="329" key="GridCell.Tab.0.center/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603981217331" />
+    <state width="1342" height="329" key="GridCell.Tab.0.left" timestamp="1603981217331">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1344" height="378" key="GridCell.Tab.0.left/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603980673246" />
-    <state width="1344" height="378" key="GridCell.Tab.0.right" timestamp="1603980673247">
+    <state width="1342" height="329" key="GridCell.Tab.0.left/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603981217331" />
+    <state width="1342" height="329" key="GridCell.Tab.0.right" timestamp="1603981217331">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1344" height="378" key="GridCell.Tab.0.right/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603980673247" />
-    <state width="1342" height="329" key="GridCell.Tab.1.bottom" timestamp="1603973113222">
+    <state width="1342" height="329" key="GridCell.Tab.0.right/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603981217331" />
+    <state width="1342" height="329" key="GridCell.Tab.1.bottom" timestamp="1603981217332">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1342" height="329" key="GridCell.Tab.1.bottom/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603973113222" />
-    <state width="1342" height="329" key="GridCell.Tab.1.center" timestamp="1603973113222">
+    <state width="1342" height="329" key="GridCell.Tab.1.bottom/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603981217332" />
+    <state width="1342" height="329" key="GridCell.Tab.1.center" timestamp="1603981217332">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1342" height="329" key="GridCell.Tab.1.center/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603973113222" />
-    <state width="1342" height="329" key="GridCell.Tab.1.left" timestamp="1603973113222">
+    <state width="1342" height="329" key="GridCell.Tab.1.center/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603981217332" />
+    <state width="1342" height="329" key="GridCell.Tab.1.left" timestamp="1603981217332">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1342" height="329" key="GridCell.Tab.1.left/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603973113222" />
-    <state width="1342" height="329" key="GridCell.Tab.1.right" timestamp="1603973113222">
+    <state width="1342" height="329" key="GridCell.Tab.1.left/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603981217332" />
+    <state width="1342" height="329" key="GridCell.Tab.1.right" timestamp="1603981217332">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1342" height="329" key="GridCell.Tab.1.right/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603973113222" />
-    <state x="494" y="250" key="SettingsEditor" timestamp="1603859681144">
+    <state width="1342" height="329" key="GridCell.Tab.1.right/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603981217332" />
+    <state x="494" y="250" key="SettingsEditor" timestamp="1603981110011">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="494" y="250" key="SettingsEditor/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603859681144" />
+    <state x="494" y="250" key="SettingsEditor/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603981110011" />
+    <state x="617" y="333" key="Vcs.Push.Dialog.v2" timestamp="1603981098901">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="617" y="333" key="Vcs.Push.Dialog.v2/0.0.2048.1112/-1920.-304.1920.1080@0.0.2048.1112" timestamp="1603981098901" />
     <state x="829" y="513" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603969470221">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -436,7 +443,7 @@
     <SUITE FILE_PATH="coverage/WebSpider$CRecognition.coverage" NAME="CRecognition Coverage Results" MODIFIED="1601173831363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/反爬机制" />
     <SUITE FILE_PATH="coverage/WebSpider$acioDemo.coverage" NAME="acioDemo Coverage Results" MODIFIED="1603980571442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysisData" />
     <SUITE FILE_PATH="coverage/WebSpider$demo.coverage" NAME="demo Coverage Results" MODIFIED="1603979768196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysisData" />
-    <SUITE FILE_PATH="coverage/WebSpider$every.coverage" NAME="every Coverage Results" MODIFIED="1603980673232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysisData" />
+    <SUITE FILE_PATH="coverage/WebSpider$every.coverage" NAME="every Coverage Results" MODIFIED="1603980746189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysisData" />
     <SUITE FILE_PATH="coverage/WebSpider$p1.coverage" NAME="p1 Coverage Results" MODIFIED="1600953626399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/First" />
     <SUITE FILE_PATH="coverage/WebSpider$threads.coverage" NAME="threads Coverage Results" MODIFIED="1601216327735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Multithreading" />
     <SUITE FILE_PATH="coverage/WebSpider$poolSpider.coverage" NAME="poolSpider Coverage Results" MODIFIED="1603979987497" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysisData" />

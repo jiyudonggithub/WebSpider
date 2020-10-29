@@ -58,6 +58,7 @@ def ping_net(url):
 
 
 if __name__ == '__main__':
+    pool = Pool(12)
     url = 'https://movie.douban.com/'
     data, page_text = getdata(url=url, num=1)
     data_all = [data]
@@ -67,11 +68,6 @@ if __name__ == '__main__':
     res = [x for x in res if not x.endswith('.ico')]
     res = [x for x in res if 'https://' in x]
     url_list = []
-    for x in res:
-        url_list.append(ping_net(x))
-    url_list = list(set(url_list))
-    print(len(url_list))
-    for x in url_list:
-        print(x)
-        data_all.append(getdata(x))
-    print(data_all)
+
+    pool_net = pool.map(ping_net, url_list)
+    pool_data = pool.map(getdata, url_list)
