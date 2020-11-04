@@ -1,0 +1,162 @@
+# 编码时间: 2020/10/29 17:32
+# @File : crawler_P.py
+# @software : PyCharm
+import xlwt  # 进行excel操作
+import pymysql
+import requests
+import re
+from lxml import etree
+import asyncio
+import aiohttp
+import functools
+import numpy as np
+
+
+head = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
+}
+
+
+def getdata(webhtml):
+    webtext=webhtml.text
+
+    data=[]
+    try:
+        status = webhtml.status_code
+
+        if webhtml.encoding.lower() == 'iso-8859-1':
+            webtext = webtext.encode('iso-8859-1').decode('gbk')
+
+        webData = etree.HTML(webtext)
+        if status == 200:
+            xpathDatas=webData.xpath('//p')
+            print('----------已爬取到网页内容----------')
+            if len(xpathDatas) !=0:
+                for p_data in xpathDatas:
+                    textData=p_data.xpath('.//text()')
+                    if len(textData) !=0:
+                        textData=p_data.xpath('.//text()')[0].strip()       #去除空格
+                        textData=re.sub(r'[^\u4e00-\u9fa50-9]','',textData)
+                        if len(textData) >20:       #抓取长度大于20的字段
+                           data.append(textData)
+                data=[x for x in data if len(x) != 0]   #排除非空数据
+    except Exception as result:
+        print(result,"网址不可访问")
+    return data,webtext
+
+
+
+#定义协程函数
+async def grab_url(seesion, url):
+    print('正在爬取 ', url, ' 的数据')
+    try:
+        async with seesion.get(url, headers=head, verify_ssl=False) as resonse:
+            text = resonse.status
+            if text == 200:
+                page_text = await resonse.text()
+
+                if resonse.get_encoding().lower() == 'gb2312':
+                    page_text = page_text.encode('gb2312').decode('gbk')
+
+                tree = etree.HTML(page_text)
+                tree_p = tree.xpath('//p')
+                data = []
+                if len(tree_p) != 0:
+                    for p in tree_p:
+                        cont = p.xpath('./text()')
+                        if len(cont) != 0:
+                            cont = cont[0].strip()
+                            cont = re.sub(r'[^\u4e00-\u9fa50-9]', '', cont)
+                            if len(cont) >20 :
+                               data.append(cont)
+                    data = [x for x in data if len(x) != 0]
+                print('爬取 ---',url, '--- 结束')
+                return data
+    except BaseException:
+        print('该网址不可访问')
+        return None
+
+async def creatTesk(url_list):
+    async with aiohttp.ClientSession() as session:
+        tesk = [asyncio.create_task(grab_url(session, url)) for url in url_list]
+        dong, pending = await asyncio.wait(tesk)
+    return dong
+
+
+def getweb():
+    url=input("输入你想要的访问的网页：")
+    webhtml=requests.get(url=url,headers=head)
+
+    return webhtml
+
+def createTable():
+    database = pymysql.connect(host='127.0.0.1', user='root', password='wh456159', database='crawlerMovieData',
+                               port=3306,
+                               charset='gbk')
+    print('连接数据库成功！')
+    conn = database.cursor()  # 获取指针以操作数据库
+    conn.execute('set names gbk')
+    # 创建数据表
+    try:
+        sql = 'CREATE TABLE data(textdata text NOT NULL)'
+        conn.execute(sql)
+        print("数据表创建成功！")
+    except pymysql.Error as e:
+        print("数据表创建失败！" + str(e))
+
+
+def insertData(datalist):
+    database = pymysql.connect(host='127.0.0.1', user='root', password='wh456159', database='crawlerMovieData',
+                               port=3306,
+                               charset='utf8')
+    conn = database.cursor()  # 获取指针以操作数据库
+    conn.execute('set names utf8')
+    # 在数据表中插入数据
+    try:
+        for i in range(len(datalist)):
+            # data = tuple(data)  # 列表转元祖 我老是搞错  一定要记得
+            sql = 'INSERT INTO data(textdata) VALUE (%s)'  #
+            # print(sql)   #打印从元祖中获取到的东西
+            data=datalist[i]
+            value = (data)  # 传递值  status 初始化0
+            conn.execute(sql, value)  # 将数据进行提交
+            database.commit()  # 数据库的提交
+        print("数据插入成功!")
+    except pymysql.Error as e:
+        print("数据插入失败" + str(e))
+    database.rollback()  # 数据插入失败返回原先状态
+
+
+if __name__ == '__main__':
+    webhtml=getweb()    #获取网页内容
+    datalist,webText=getdata(webhtml)
+    data_all=[datalist]         #保存所有数据
+    if len(data_all) > 1:   #若为二维列表降维
+      data_all = list(functools.reduce(lambda x, y: x + y, data_all))  # 将二维列表换成以为列表
+
+
+    res = re.findall(r'href="(.*?)".+', webText)
+    res = [x for x in res if not x.endswith('.png')]
+    res = [x for x in res if not x.endswith('.css')]
+    res = [x for x in res if not x.endswith('.ico')]
+    res = [x for x in res if 'download' not in x]
+    res = [x for x in res if 'https://' in x]
+    print("动态获取的网页个数%d"%len(res))
+
+    if len(res) != 0:
+        dong = asyncio.run(creatTesk(res))
+        print("正在处理数据.......")
+        for i in dong:
+            if i.result() is not None:
+                data_all.append(i.result())
+
+        if len(data_all)>1:
+           data_all = list(functools.reduce(lambda x, y: x + y, data_all))
+
+    print(data_all)
+
+    #createTable()           #创建数据表
+    #insertData(data_all)    #插入数据
+
+
+

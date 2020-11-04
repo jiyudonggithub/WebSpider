@@ -8,6 +8,7 @@ import requests
 import bs4
 import lxml
 import time
+
 if __name__ == '__main__':
     url = 'https://www.shicimingju.com/book/sanguoyanyi.html'
     headers = {
